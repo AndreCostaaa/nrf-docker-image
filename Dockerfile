@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     device-tree-compiler \
     cmake \
     gperf \
+    ninja-build \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and build Python 3.12.4
@@ -40,11 +41,6 @@ RUN wget https://www.python.org/ftp/python/3.12.4/Python-3.12.4.tgz \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.12 1 \
     && update-alternatives --config python3 \
     && python3 --version
-
-# Install Ninja 1.10.2
-RUN wget https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip \
-    && unzip ninja-linux.zip -d /usr/local/bin \
-    && rm ninja-linux.zip
 
 # Install West 1.2.0
 RUN pip install west==1.2.0
