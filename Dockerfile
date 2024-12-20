@@ -42,8 +42,10 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python
     && update-alternatives --config python3 \
     && python3 --version
 
+RUN apt-get install python3-pip
+
 # Install West 1.2.0
-RUN pip install west==1.2.0
+RUN pip3 install west==1.2.0
 
 # Install Zephyr SDK 0.17.0
 RUN wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.17.0/zephyr-sdk-0.17.0-linux-x86_64-setup.run \
