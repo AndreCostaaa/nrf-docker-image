@@ -42,7 +42,9 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python
     && update-alternatives --config python3 \
     && python3 --version
 
-RUN apt-get install python3-pip
+RUN apt-get update && apt-get install -y python3-pip \
+    && python3.12 -m ensurepip \
+    && python3.12 -m pip install --upgrade pip
 
 # Install West 1.2.0
 RUN pip3 install west==1.2.0
