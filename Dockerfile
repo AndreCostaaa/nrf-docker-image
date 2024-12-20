@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     uuid-dev \
     libffi-dev \
     ca-certificates \
-    dtc \
+    device-tree-compiler \
     cmake \
     gperf \
     && rm -rf /var/lib/apt/lists/*
